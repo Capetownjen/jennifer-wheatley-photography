@@ -19,8 +19,6 @@
       --soft: #888078;
       --text: #1a1814;
       --text-light: #3a3530;
-      --accent: #1a1814;
-      --accent-dim: #3a3530;
     }
 
     html { scroll-behavior: smooth; }
@@ -36,242 +34,190 @@
 
     /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.6rem 3rem;
-      background: linear-gradient(to bottom, rgba(247,244,239,0.98) 0%, rgba(247,244,239,0) 100%);
+      background: linear-gradient(to bottom, rgba(247,244,239,0.98), rgba(247,244,239,0));
       transition: background 0.4s;
     }
-    nav.scrolled {
-      background: rgba(247,244,239,0.98);
-      border-bottom: 1px solid rgba(26,24,20,0.12);
-    }
+    nav.scrolled { background: rgba(247,244,239,0.98); border-bottom: 1px solid rgba(26,24,20,0.12); }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.05rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--text);
-      text-decoration: none;
+      font-weight: 300; font-size: 1.05rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
     }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color 0.3s;
-      position: relative;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-light); text-decoration: none; transition: color 0.3s; position: relative;
     }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s;
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--text); transition: width 0.3s;
     }
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
 
     /* HERO */
     .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      padding: 2rem;
-      background: var(--bg);
+      height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      position: relative; padding: 2rem; background: var(--bg);
     }
     .hero-line-top, .hero-line-bottom {
-      position: absolute;
-      left: 4rem; right: 4rem;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent-dim), transparent);
-      opacity: 0.3;
+      position: absolute; left: 4rem; right: 4rem; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(26,24,20,0.2), transparent);
     }
     .hero-line-top { top: 8rem; }
     .hero-line-bottom { bottom: 8rem; }
-
-    .hero-content { position: relative; z-index: 2; animation: heroFade 1.6s ease both; }
-    @keyframes heroFade {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow {
-      font-size: 0.6rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: 1.8rem;
-    }
+    .hero-content { animation: heroFade 1.6s ease both; }
+    @keyframes heroFade { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--soft); margin-bottom: 1.8rem; }
     .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      line-height: 1;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 0.4rem;
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 7rem); line-height: 1;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text); margin-bottom: 0.4rem;
     }
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-      letter-spacing: 0.3em;
-      color: var(--soft);
-      margin-bottom: 2.5rem;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.8rem); letter-spacing: 0.3em;
+      color: var(--soft); margin-bottom: 2.5rem;
     }
-    .hero-services {
-      font-size: 0.58rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-    .hero-services span { color: var(--accent-dim); margin: 0 0.7rem; }
-
+    .hero-services { font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--soft); }
+    .hero-services span { margin: 0 0.7rem; }
     .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
       font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--soft);
     }
     .hero-scroll::after {
       content: ''; display: block; width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--accent-dim), transparent);
+      background: linear-gradient(to bottom, var(--text), transparent);
       animation: scrollLine 2s ease infinite;
     }
     @keyframes scrollLine {
-      0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-      51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
     }
 
     /* SECTIONS */
     section { padding: 6rem 0; }
     .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-eyebrow {
-      font-size: 0.58rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: 1rem;
-    }
+    .section-eyebrow { font-size: 0.58rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--soft); margin-bottom: 1rem; }
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text);
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text);
     }
-    .section-rule {
-      width: 40px; height: 1px;
-      background: var(--accent);
-      margin: 1.5rem auto 0;
-      opacity: 0.3;
-    }
+    .section-rule { width: 40px; height: 1px; background: var(--text); opacity: 0.2; margin: 1.5rem auto 0; }
 
     /* ABOUT */
-    #about {
-      background: var(--bg-alt);
-      border-top: 1px solid rgba(26,24,20,0.08);
-      border-bottom: 1px solid rgba(26,24,20,0.08);
-    }
+    #about { background: var(--bg-alt); border-top: 1px solid rgba(26,24,20,0.08); border-bottom: 1px solid rgba(26,24,20,0.08); }
     .about-inner { max-width: 680px; margin: 0 auto; padding: 0 2rem; text-align: center; }
-    .about-inner p { font-size: 1rem; line-height: 1.9; color: var(--text-light); font-weight: 300; }
+    .about-inner p { font-size: 1rem; line-height: 1.9; color: var(--text-light); }
     .about-inner p + p { margin-top: 1.5rem; }
-    .about-inner em {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text);
-    }
+    .about-inner em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--text); }
 
     /* GALLERY */
     #work { background: var(--bg); }
-
     .gallery-tabs {
-      display: flex;
-      justify-content: center;
+      display: flex; justify-content: center;
       margin-bottom: 3.5rem;
       border-bottom: 2px solid rgba(26,24,20,0.12);
     }
     .tab-btn {
-      background: none;
-      border: none;
-      border-bottom: 3px solid transparent;
-      padding: 1rem 2.5rem;
-      margin-bottom: -2px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--mid);
-      cursor: pointer;
-      transition: color 0.3s, border-color 0.3s;
+      background: none; border: none; border-bottom: 3px solid transparent;
+      padding: 1rem 2.5rem; margin-bottom: -2px;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--mid); cursor: pointer; transition: color 0.3s, border-color 0.3s;
     }
     .tab-btn:hover { color: var(--text-light); }
     .tab-btn.active { color: var(--text); border-bottom-color: var(--text); }
 
-    .gallery-grid { display: none; columns: 3; column-gap: 4px; padding: 0 4px; max-width: 1200px; margin: 0 auto; }
+    /* Masonry columns — preserves natural image proportions */
+    .gallery-grid {
+      display: none;
+      columns: 3;
+      column-gap: 4px;
+      padding: 0 4px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
     .gallery-grid.active { display: block; }
-    .gallery-item { break-inside: avoid; margin-bottom: 4px; position: relative; overflow: hidden; cursor: pointer; }
-    .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 4px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: auto; display: block;
+      transition: transform 0.5s ease;
+    }
     .gallery-item:hover img { transform: scale(1.03); }
-    .gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.4s; }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0); transition: background 0.4s;
+    }
     .gallery-item:hover .gallery-overlay { background: rgba(0,0,0,0.15); }
 
     /* LIGHTBOX */
-    .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(26,24,20,0.95); align-items: center; justify-content: center; }
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(26,24,20,0.96); align-items: center; justify-content: center;
+    }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
-    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2.5rem; color: var(--bg); cursor: pointer; background: none; border: none; opacity: 0.7; transition: opacity 0.2s; line-height: 1; }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 2rem; font-size: 2.5rem;
+      color: #f7f4ef; cursor: pointer; background: none; border: none;
+      opacity: 0.7; line-height: 1; transition: opacity 0.2s;
+    }
     .lightbox-close:hover { opacity: 1; }
-    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 3rem; color: var(--bg); cursor: pointer; background: none; border: none; opacity: 0.5; transition: opacity 0.2s; padding: 1rem; }
+    .lightbox-prev, .lightbox-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 3rem; color: #f7f4ef; cursor: pointer;
+      background: none; border: none; opacity: 0.5; padding: 1rem; transition: opacity 0.2s;
+    }
     .lightbox-prev:hover, .lightbox-next:hover { opacity: 1; }
     .lightbox-prev { left: 1rem; }
     .lightbox-next { right: 1rem; }
 
     /* SERVICES */
-    #services {
-      background: var(--bg-alt);
-      border-top: 1px solid rgba(26,24,20,0.08);
+    #services { background: var(--bg-alt); border-top: 1px solid rgba(26,24,20,0.08); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px; background: var(--mid); max-width: 1100px; margin: 0 auto; border: 1px solid var(--mid);
     }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--mid); max-width: 1100px; margin: 0 auto; border: 1px solid var(--mid); }
     .service-card { background: var(--bg-alt); padding: 3rem 2rem; text-align: center; transition: background 0.3s; }
     .service-card:hover { background: var(--bg-dark); }
-    .service-icon { font-size: 1.5rem; margin-bottom: 1.2rem; display: block; color: var(--soft); }
-    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); margin-bottom: 0.8rem; }
-    .service-desc { font-size: 0.72rem; line-height: 1.8; color: var(--soft); letter-spacing: 0.06em; }
+    .service-icon { font-size: 1.2rem; margin-bottom: 1.2rem; display: block; color: var(--soft); }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); margin-bottom: 0.8rem;
+    }
+    .service-desc { font-size: 0.72rem; line-height: 1.8; color: var(--soft); }
 
     /* RATES */
     #rates { background: var(--bg); }
-    .rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--mid); max-width: 900px; margin: 0 auto; border: 1px solid var(--mid); }
+    .rates-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px; background: var(--mid); max-width: 900px; margin: 0 auto; border: 1px solid var(--mid);
+    }
     .rate-card { background: var(--bg); padding: 2.5rem 1.5rem; text-align: center; transition: background 0.3s; }
     .rate-card:hover { background: var(--bg-alt); }
     .rate-hours { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--soft); margin-bottom: 0.8rem; }
     .rate-price { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--text); line-height: 1; }
-    .rate-currency { font-size: 1rem; color: var(--soft); vertical-align: super; font-family: 'Raleway', sans-serif; }
+    .rate-currency { font-size: 1rem; color: var(--soft); vertical-align: super; }
     .rate-note { margin-top: 0.8rem; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--soft); }
     .rates-notes { max-width: 600px; margin: 2.5rem auto 0; padding: 0 2rem; text-align: center; }
-    .rates-notes p { font-size: 0.72rem; line-height: 1.9; color: var(--soft); letter-spacing: 0.06em; }
+    .rates-notes p { font-size: 0.72rem; line-height: 1.9; color: var(--soft); }
     .rates-notes p + p { margin-top: 0.6rem; }
 
     /* CONTACT */
@@ -282,40 +228,40 @@
     .contact-label { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--soft); width: 80px; text-align: right; flex-shrink: 0; }
     .contact-value { font-size: 0.9rem; letter-spacing: 0.1em; color: var(--text); text-decoration: none; transition: color 0.3s; }
     .contact-value:hover { color: var(--soft); }
-    .contact-divider { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent); margin: 0 auto 2.5rem; opacity: 0.3; }
-    .contact-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--soft); letter-spacing: 0.08em; line-height: 1.7; }
+    .contact-divider { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, rgba(26,24,20,0.2), transparent); margin: 0 auto 2rem; }
+    .contact-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--soft); line-height: 1.7; }
 
     /* FOOTER */
     footer { background: var(--text); padding: 2rem; text-align: center; }
-    footer p { font-size: 0.55rem; letter-spacing: 0.2em; color: rgba(247,244,239,0.5); text-transform: uppercase; }
+    footer p { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,244,239,0.5); }
     footer span { color: rgba(247,244,239,0.8); }
 
     /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: 0.55rem; }
+      .nav-links a { font-size: 0.6rem; }
       .hero-line-top, .hero-line-bottom { left: 1.5rem; right: 1.5rem; }
       section { padding: 4rem 0; }
       .gallery-grid { columns: 2; }
-      .tab-btn { font-size: 1rem; padding: 0.8rem 1.5rem; }
+      .tab-btn { font-size: 1rem; padding: 0.8rem 1.2rem; }
       .contact-item { flex-direction: column; gap: 0.3rem; }
       .contact-label { width: auto; text-align: center; }
     }
     @media (max-width: 480px) {
       .gallery-grid { columns: 1; }
-      .tab-btn { font-size: 0.85rem; padding: 0.8rem 1rem; }
+      .tab-btn { font-size: 0.85rem; padding: 0.8rem 0.8rem; }
     }
   </style>
 </head>
 <body>
 
   <nav id="nav">
-    <a href="#" class="nav-logo">Jennifer Wheatley</a>
+    <a href="#home" class="nav-logo">Jennifer Wheatley</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#services">Services</a></li>
@@ -361,6 +307,7 @@
       <button class="tab-btn" data-tab="portraits">Portraits</button>
     </div>
 
+    <!-- WEDDINGS: 15 images -->
     <div class="gallery-grid active" id="tab-weddings">
       <div class="gallery-item" onclick="openLightbox('weddings',0)"><img src="images/wedding1.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('weddings',1)"><img src="images/wedding2.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
@@ -370,8 +317,16 @@
       <div class="gallery-item" onclick="openLightbox('weddings',5)"><img src="images/wedding6.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('weddings',6)"><img src="images/wedding7.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('weddings',7)"><img src="images/wedding8.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',8)"><img src="images/wedding9.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',9)"><img src="images/wedding10.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',10)"><img src="images/wedding11.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',11)"><img src="images/wedding12.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',12)"><img src="images/wedding13.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',13)"><img src="images/wedding14.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('weddings',14)"><img src="images/wedding15.jpg" alt="Wedding"><div class="gallery-overlay"></div></div>
     </div>
 
+    <!-- FAMILY: 15 images -->
     <div class="gallery-grid" id="tab-family">
       <div class="gallery-item" onclick="openLightbox('family',0)"><img src="images/family1.jpg" alt="Family"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('family',1)"><img src="images/family2.jpg" alt="Family"><div class="gallery-overlay"></div></div>
@@ -382,8 +337,15 @@
       <div class="gallery-item" onclick="openLightbox('family',6)"><img src="images/family7.jpg" alt="Family"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('family',7)"><img src="images/family8.jpg" alt="Family"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('family',8)"><img src="images/family9.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',9)"><img src="images/family10.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',10)"><img src="images/family11.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',11)"><img src="images/family12.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',12)"><img src="images/family13.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',13)"><img src="images/family14.jpg" alt="Family"><div class="gallery-overlay"></div></div>
+      <div class="gallery-item" onclick="openLightbox('family',14)"><img src="images/family15.jpg" alt="Family"><div class="gallery-overlay"></div></div>
     </div>
 
+    <!-- PORTRAITS: 15 images -->
     <div class="gallery-grid" id="tab-portraits">
       <div class="gallery-item" onclick="openLightbox('portraits',0)"><img src="images/portrait1.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('portraits',1)"><img src="images/portrait2.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
@@ -400,7 +362,6 @@
       <div class="gallery-item" onclick="openLightbox('portraits',12)"><img src="images/portrait13.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('portraits',13)"><img src="images/portrait14.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
       <div class="gallery-item" onclick="openLightbox('portraits',14)"><img src="images/portrait15.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
-      <div class="gallery-item" onclick="openLightbox('portraits',15)"><img src="images/portrait16.jpg" alt="Portrait"><div class="gallery-overlay"></div></div>
     </div>
   </section>
 
@@ -425,7 +386,7 @@
       <div class="section-rule"></div>
     </div>
     <div class="rates-grid reveal">
-      <div class="rate-card"><p class="rate-hours">1 Hour</p><p class="rate-price"><span class="rate-currency">R</span>1 850</p><p class="rate-note">Perfect for portraits &amp; headshots</p></div>
+      <div class="rate-card"><p class="rate-hours">1 Hour</p><p class="rate-price"><span class="rate-currency">R</span>1 850</p><p class="rate-note">Portraits &amp; headshots</p></div>
       <div class="rate-card"><p class="rate-hours">2 Hours</p><p class="rate-price"><span class="rate-currency">R</span>3 000</p><p class="rate-note">Family sessions &amp; small events</p></div>
       <div class="rate-card"><p class="rate-hours">4 Hours</p><p class="rate-price"><span class="rate-currency">R</span>5 000</p><p class="rate-note">Half-day &amp; intimate weddings</p></div>
       <div class="rate-card"><p class="rate-hours">Full Day</p><p class="rate-price"><span class="rate-currency">R</span>7 000</p><p class="rate-note">Complete wedding coverage</p></div>
@@ -433,7 +394,7 @@
     <div class="rates-notes reveal">
       <p>Travel to Stellenbosch and surrounding areas: +R650.</p>
       <p>Weddings include 600 or more unique, fully edited images.</p>
-      <p>Canvases, framing and photobooks are available after delivery — recommended following consultation to assess your space and needs.</p>
+      <p>Canvases, framing and photobooks available after consultation.</p>
     </div>
   </section>
 
@@ -479,15 +440,15 @@
       });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     const galleries = {
-      weddings: ['images/wedding1.jpg','images/wedding2.jpg','images/wedding3.jpg','images/wedding4.jpg','images/wedding5.jpg','images/wedding6.jpg','images/wedding7.jpg','images/wedding8.jpg'],
-      family: ['images/family1.jpg','images/family2.jpg','images/family3.jpg','images/family4.jpg','images/family5.jpg','images/family6.jpg','images/family7.jpg','images/family8.jpg','images/family9.jpg'],
-      portraits:['images/portrait1.jpg','images/portrait2.jpg','images/portrait3.jpg','images/portrait4.jpg','images/portrait5.jpg','images/portrait6.jpg','images/portrait7.jpg','images/portrait8.jpg','images/portrait9.jpg','images/portrait10.jpg','images/portrait11.jpg','images/portrait12.jpg','images/portrait13.jpg','images/portrait14.jpg','images/portrait15.jpg','images/portrait16.jpg']
+      weddings: Array.from({length: 15}, (_, i) => `images/wedding${i+1}.jpg`),
+      family: Array.from({length: 15}, (_, i) => `images/family${i+1}.jpg`),
+      portraits: Array.from({length: 15}, (_, i) => `images/portrait${i+1}.jpg`)
     };
     let currentGallery = [], currentIndex = 0;
 
@@ -506,7 +467,9 @@
       currentIndex = (currentIndex + dir + currentGallery.length) % currentGallery.length;
       document.getElementById('lightbox-img').src = currentGallery[currentIndex];
     }
-    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowRight') changeLightbox(1);
